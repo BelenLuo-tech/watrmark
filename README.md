@@ -29,3 +29,19 @@ pnpm install watermark --save
 import { generate } from "./watermark"
 generate("蟹老板 18岁")
 ```
+
+## Issues
+
+https://github.com/Belen-Luo/watrmark/issues
+
+## 更新日志
+
+### 发布周期
+
+- 修订版本号：日常bugfix更新。
+- 次版本号：发布带有新特性的向下兼容的版本。
+- 主版本号：含有破坏性更新和新特性。
+
+#### v1.0.0
+
+- 网页水印创建
