@@ -1,0 +1,8 @@
+# Exclude all files except index.js and package.json
+*
+
+# Include index.js and package.json
+!dist/*
+!package.json
+!public/*
+!README.md

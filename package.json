@@ -1,0 +1,42 @@
+{
+  "name": "watrmark",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "watermark 是一个用于在网页中创建水印的 SDK。它提供了一个简单易用的接口，让你可以轻松地添加自定义水印到网页内容中。",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "main": "./dist/watermark.es.js",
+  "dependencies": {
+    "preact": "^10.19.6",
+    "vite-plugin-html": "^3.2.2"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.8.2",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0",
+    "vite-plugin-banner": "^0.7.1"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Belen-Luo/watrmark.git"
+  },
+  "keywords": [
+    "水印",
+    "watrmark",
+    "watermark",
+    "react-watermark",
+    "vue-watermark"
+  ],
+  "author": "BelenLuo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Belen-Luo/watrmark/issues"
+  },
+  "homepage": "https://github.com/Belen-Luo/watrmark#readme"
+}
