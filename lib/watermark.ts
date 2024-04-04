@@ -1,3 +1,5 @@
+import { createUniqueId } from "./utils"
+
 type WatermarkOptions = {
   /**
    * The width of the watermark.
@@ -29,6 +31,7 @@ type WatermarkOptions = {
   opacity?: number
 }
 
+const waterMarkMap = new Map()
 
 export function generate(text: string | string[], options: WatermarkOptions = {}) {
   const screenWidth = Math.max(document.body.scrollWidth, window.screen.width)
@@ -88,4 +91,17 @@ export function generate(text: string | string[], options: WatermarkOptions = {}
   container.append(fragment)
 
   document.body.append(container)
+
+  const watermarkId = createUniqueId()
+
+  waterMarkMap.set(watermarkId, container)
+
+  return watermarkId
+}
+
+export function clearWatermark(id: string) {
+  if (!waterMarkMap.has(id)) return
+  const waterMark = waterMarkMap.get(id)
+  waterMark.remove()
+  waterMarkMap.delete(id)
 }

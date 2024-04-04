@@ -23,11 +23,22 @@ npm install watermark --save
 pnpm install watermark --save
 ```
 
-## 使用
+## 基础使用
 
 ```js
 import { generate } from "./watermark"
 generate("蟹老板 18岁")
+```
+
+## 清除水印
+
+```js
+import { generate, watermarkId } from "./watermark"
+const watermarkId = generate("蟹老板 18岁")
+
+// clear Watermark 
+
+clearWatermark(watermarkId)
 ```
 
 ## Issues
@@ -45,3 +56,7 @@ https://github.com/Belen-Luo/watrmark/issues
 #### v1.0.0
 
 - 网页水印创建
+
+#### v1.1.0
+
+- 添加水印清除功能

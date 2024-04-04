@@ -1,6 +1,6 @@
 {
   "name": "watrmark",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "description": "watermark 是一个用于在网页中创建水印的 SDK。它提供了一个简单易用的接口，让你可以轻松地添加自定义水印到网页内容中。",
   "scripts": {
