@@ -99,9 +99,14 @@ export function generate(text: string | string[], options: WatermarkOptions = {}
   return watermarkId
 }
 
-export function clearWatermark(id: string) {
-  if (!waterMarkMap.has(id)) return
-  const waterMark = waterMarkMap.get(id)
-  waterMark.remove()
-  waterMarkMap.delete(id)
+export function clearWatrmark(id?: string) {
+  if (!id) {
+    return waterMarkMap.clear();
+  }
+
+  const waterMark = waterMarkMap.get(id);
+  if (waterMark) {
+    waterMark.remove();
+    waterMarkMap.delete(id);
+  }
 }

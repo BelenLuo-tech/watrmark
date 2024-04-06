@@ -33,10 +33,39 @@ generate("蟹老板 18岁")
 ## 清除水印
 
 ```js
-import { generate, clearWatermark } from "watrmark"
-const watermarkId = generate("蟹老板 18岁")
-clearWatermark(watermarkId)
+import { generate, clearWatrmark } from "watrmark"
+const watrmarkId = generate("蟹老板 18岁")
+clearWatrmark(watrmarkId)
 ```
+
+## API
+
+### generate(text: string)
+
+对当前网页生成一个水印，并返回一个唯一标识，预留传递给 clearWatrmark 用于清除水印。
+
+- **返回值**
+
+  - `string`
+
+- **示例**
+
+```js
+import { generate } from "watrmark"
+const watrmarkId = generate("这是一个水印案例")
+```
+  
+### clearWatrmark(watrmarkId?: string)
+
+清除当前网页的水印, 如果不传入 watrmarkId，则清除所有.
+
+- **示例**
+
+```js
+import { clearWatrmark } from "watrmark"
+clearWatrmark("watrmarkId")
+```
+
 
 ## Issues
 

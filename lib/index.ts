@@ -1,1 +1,1 @@
-export { generate, clearWatermark } from "./watermark"
+export { generate, clearWatrmark } from "./watermark"
