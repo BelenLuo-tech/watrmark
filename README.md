@@ -33,11 +33,8 @@ generate("蟹老板 18岁")
 ## 清除水印
 
 ```js
-import { generate, watermarkId } from "./watermark"
+import { generate, clearWatermark } from "./watermark"
 const watermarkId = generate("蟹老板 18岁")
-
-// clear Watermark 
-
 clearWatermark(watermarkId)
 ```
 
