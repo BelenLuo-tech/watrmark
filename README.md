@@ -1,6 +1,6 @@
-# Watermark
+# Watrmark
 
-> watermark 是一个用于在网页中创建水印的 npm 包。它提供了一个简单易用的接口，让你可以轻松地添加自定义水印到网页内容中。无论是在保护敏感信息还是在展示品牌标识时，这个包都能帮助你快速生成具有专业外观的水印效果。
+> watrmark 是一个用于在网页中创建水印的 npm 包。它提供了一个简单易用的接口，让你可以轻松地添加自定义水印到网页内容中。无论是在保护敏感信息还是在展示品牌标识时，这个包都能帮助你快速生成具有专业外观的水印效果。
 
 <img src="./public/demo.jpg" />
 
@@ -15,25 +15,25 @@
 
 使用 npm:
 ```
-npm install watermark --save
+npm install watrmark --save
 ```
 
 使用 pnpm:
 ```
-pnpm install watermark --save
+pnpm install watrmark --save
 ```
 
 ## 基础使用
 
 ```js
-import { generate } from "./watermark"
+import { generate } from "watrmark"
 generate("蟹老板 18岁")
 ```
 
 ## 清除水印
 
 ```js
-import { generate, clearWatermark } from "./watermark"
+import { generate, clearWatermark } from "watrmark"
 const watermarkId = generate("蟹老板 18岁")
 clearWatermark(watermarkId)
 ```
