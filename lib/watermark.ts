@@ -62,7 +62,6 @@ export function generate(text: string | string[], options: WatermarkOptions = {}
 
   Object.assign(watermark.style, style)
 
-
   const cols = Math.ceil(screenWidth / width!)
   const rows = Math.ceil(screenHeight / height!)
 

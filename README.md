@@ -27,22 +27,35 @@ pnpm install watrmark --save
 
 ```js
 import { generate } from "watrmark"
-generate("蟹老板 18岁")
+generate("水印文本 9311")
 ```
 
 ## 清除水印
 
 ```js
 import { generate, clearWatrmark } from "watrmark"
-const watrmarkId = generate("蟹老板 18岁")
+const watrmarkId = generate("水印文本 9311")
 clearWatrmark(watrmarkId)
 ```
 
 ## API
 
-### generate(text: string)
+### generate(text: string, options?: WatrmarkOptions)
 
 对当前网页生成一个水印，并返回一个唯一标识，预留传递给 clearWatrmark 用于清除水印。
+
+- **WatrmarkOptions**
+
+| 参数 | 类型 | 描述 | 默认值 |
+| --- | --- | --- | --- |
+| width | `number` | 水印宽度 | 200 |
+| height | `number` | 水印高度 | 200 |
+| fontSize | `string` | 水印文字大小 | `24px` |
+| fontFamily | `string` | 水印字体 | `微软雅黑` |
+| color | `string` | 水印文字颜色 | `#333` |
+| rotate | `number` | 水印旋转角度 | 330 |
+| opacity | `number` | 水印透明度 | 0.1 |
+
 
 - **返回值**
 
@@ -52,7 +65,7 @@ clearWatrmark(watrmarkId)
 
 ```js
 import { generate } from "watrmark"
-const watrmarkId = generate("这是一个水印案例")
+const watrmarkId = generate("水印文本 9311")
 ```
   
 ### clearWatrmark(watrmarkId?: string)

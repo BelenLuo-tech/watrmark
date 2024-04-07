@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'preact/hooks'
 import preactLogo from './assets/preact.svg'
-import { generate, clearWatermark } from "../lib"
+import { generate, clearWatrmark } from "../lib"
 
 import './app.css'
 
@@ -11,12 +11,12 @@ export function App() {
 
   useEffect(() => {
     // 创建水印
-    watermark.current = generate("蟹老板 18 岁")
+    watermark.current = generate("水印文本 9311")
   }, [])
 
   // 清除水印
   function handleClearWatermark() {
-    clearWatermark(watermark.current!)
+    clearWatrmark(watermark.current!)
   }
 
   return (
