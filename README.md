@@ -69,7 +69,6 @@ const watrmarkId = generate("水印文本 9311")
 ```
   
 ### clearWatrmark(watrmarkId?: string)
-
 清除当前网页的水印, 如果不传入 watrmarkId，则清除所有.
 
 - **示例**
