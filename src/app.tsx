@@ -16,7 +16,8 @@ export function App() {
 
   // 清除水印
   function handleClearWatermark() {
-    clearWatrmark(watermark.current!)
+    // watermark.current!
+    clearWatrmark()
   }
 
   return (

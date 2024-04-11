@@ -1,39 +1,9 @@
 import { createUniqueId } from "./utils"
-
-type WatermarkOptions = {
-  /**
-   * The width of the watermark.
-   */
-  width?: number
-  /**
-   * The height of the watermark.
-   */
-  height?: number
-  /**
-   * The font size to use for the watermark.
-   */
-  fontSize?: string
-  /**
-   * The font family to use for the watermark.
-   */
-  fontFamily?: string
-  /**
-   * The color to use for the watermark.
-   */
-  color?: string
-  /**
-   * The rotation angle to use for the watermark.
-   */
-  rotate?: number
-  /**
-   * The opacity to use for the watermark.
-   */
-  opacity?: number
-}
+import type { WatermarkOptions } from "./types"
 
 const waterMarkMap = new Map()
 
-export function generate(text: string | string[], options: WatermarkOptions = {}) {
+function createWatermark(watermarkId: string, text: string | string[], options: WatermarkOptions = {}) {
   const screenWidth = Math.max(document.body.scrollWidth, window.screen.width)
   const screenHeight = Math.max(document.body.scrollHeight, window.screen.height)
 
@@ -89,23 +59,44 @@ export function generate(text: string | string[], options: WatermarkOptions = {}
   const container = document.createElement("div")
   container.append(fragment)
 
+  const observer = new MutationObserver((mutationsList: any[]) => {
+    for (let mutation of mutationsList) {
+      if (mutation.target === container || mutation.target.parentNode === container || mutation.removedNodes[0] === container) {
+        clearWatrmark(watermarkId)
+        createWatermark(watermarkId, text, options)
+      }
+    }
+  })
+
+  waterMarkMap.set(watermarkId, {
+    remove: () => {
+      observer.disconnect()
+      container.remove()
+      waterMarkMap.delete(watermarkId)
+    }
+  })
+
   document.body.append(container)
-
-  const watermarkId = createUniqueId()
-
-  waterMarkMap.set(watermarkId, container)
+  observer.observe(document.body, { attributes: true, childList: true, subtree: true });
 
   return watermarkId
 }
 
-export function clearWatrmark(id?: string) {
-  if (!id) {
-    return waterMarkMap.clear();
-  }
+export function generate(text: string | string[], options: WatermarkOptions = {}) {
+  return createWatermark(createUniqueId(), text, options)
+}
 
-  const waterMark = waterMarkMap.get(id);
-  if (waterMark) {
-    waterMark.remove();
-    waterMarkMap.delete(id);
+export function clearWatrmark(id?: string) {
+  try {
+    if (!id) {
+      for (const [_, { remove }] of waterMarkMap) {
+        remove()
+      }
+    } else {
+      const { remove } = waterMarkMap.get(id);
+      remove?.();
+    }
+  } catch (err) {
+    console.error(err)
   }
 }
