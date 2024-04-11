@@ -98,3 +98,7 @@ https://github.com/Belen-Luo/watrmark/issues
 #### v1.1.0
 
 - 添加水印清除功能
+  
+#### v1.2.0
+
+- 添加防修改和注入功能
